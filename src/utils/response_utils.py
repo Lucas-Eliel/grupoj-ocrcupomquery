@@ -1,6 +1,3 @@
-import json
-
-
 class ResponseUtils:
 
     @staticmethod
@@ -9,9 +6,9 @@ class ResponseUtils:
         return {
             "headers": {"Content-Type": "application/json"},
             "statusCode": status,
-            "body": json.dumps({
+            "body": {
                 "data": payload
-            })
+            }
         }
 
     @staticmethod
@@ -26,8 +23,6 @@ class ResponseUtils:
             "headers": {"Content-Type": "application/json"},
             "statusCode": status,
             "body": {
-                "testes": json.dumps({
-                    "data": payload
-                })
+                "data": payload
             }
         }

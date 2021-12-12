@@ -14,15 +14,15 @@ class OcrCupomCommandController:
 
     def invoke(self):
         try:
-            if self.event['resource'] == '/cupons_processados':
+            if self.event['resource'] == '/cupons-validos':
                 if self.event['httpMethod'] == 'GET':
-                    result = self.service.obter_cupons_processados()
-                    ResponseUtils.sucess(HTTPStatus.OK, result)
+                    result = self.service.obter_cupons_validos()
+                    return ResponseUtils.sucess(HTTPStatus.OK, result)
                 raise ValidationRequestException("Método HTTP inválido")
-            if self.event['resource'] == '/cupons_nao_processados':
+            if self.event['resource'] == '/cupons-invalidos':
                 if self.event['httpMethod'] == 'GET':
-                    result = self.service.obter_cupons_nao_processados()
-                    ResponseUtils.sucess(HTTPStatus.OK, result)
+                    result = self.service.obter_cupons_invalidos()
+                    return ResponseUtils.sucess(HTTPStatus.OK, result)
                 raise ValidationRequestException("Método HTTP inválido")
             raise ValidationRequestException("Endpoint inválido")
 

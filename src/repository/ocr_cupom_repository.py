@@ -1,4 +1,5 @@
 import boto3
+from boto3.dynamodb.conditions import Key
 
 from src.exception.dynamodb_integration_exception import DynamodbIntegrationException
 
@@ -13,14 +14,10 @@ class OcrCupomRepository:
     def __init__(self):
         self.connection = get_connection_dynamodb()
 
-    def find_by_status(self, status_cupom):
+    def find_by_status(self, status_param):
         try:
-            data = self.connection.query(
-                KeyConditionExpression='status = :status_cupom',
-                ExpressionAttributeValues={
-                    ':status_cupom': status_cupom
-                }
-            )
+            data = self.connection.query(KeyConditionExpression='status_cupom = :status_param',
+                             ExpressionAttributeValues={':status_param': str(status_param)})
 
             return data['Items']
         except Exception as error:

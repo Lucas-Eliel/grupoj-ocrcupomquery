@@ -8,9 +8,9 @@ class OcrCupomService:
         self.event = event
         self.repository = OcrCupomRepository()
 
-    def obter_cupons_processados(self):
+    def obter_cupons_validos(self):
         return self.repository.find_by_status(Status.VALIDO.value)
 
-    def obter_cupons_nao_processados(self):
+    def obter_cupons_invalidos(self):
         return self.repository.find_by_status(Status.INVALIDO.value)
 
