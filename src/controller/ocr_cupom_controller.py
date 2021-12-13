@@ -33,7 +33,7 @@ class OcrCupomCommandController:
             return ResponseUtils.error(HTTPStatus.SERVICE_UNAVAILABLE, error.message)
 
         except Exception as error:
-            return ResponseUtils.error(HTTPStatus.INTERNAL_SERVER_ERROR, error)
+            return ResponseUtils.error(HTTPStatus.INTERNAL_SERVER_ERROR, str(error))
 
 
 

@@ -2,7 +2,6 @@ class ResponseUtils:
 
     @staticmethod
     def sucess(status, payload):
-
         return {
             "headers": {"Content-Type": "application/json"},
             "statusCode": status,
@@ -13,7 +12,6 @@ class ResponseUtils:
 
     @staticmethod
     def error(status, message):
-
         payload = {
             "codigo": status,
             "mensagem": message
